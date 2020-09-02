@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Page</string>
+    <string name="connect">Connect</string>
+    <string name="_192">192</string>
+    <string name="_168">168</string>
+    <string name="_0">0</string>
+    <string name="_100">100</string>
+    <string name="_50000">50000</string>
+    <string name="port">port</string>
+    <string name="back">Back</string>
+    <string name="download">Download</string>
+</resources>
