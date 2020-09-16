@@ -6,7 +6,7 @@ Page is an application that lets you transform your PC/Laptop (more devices comi
 
 ## Getting Started
 
-To get started simply download the page-python application onto your computer and run it. You can find instructions to run page-python in its README.
+To get started simply download the [page-python](https://github.com/krishnakeshan/page-python) application onto your computer and run it. You can find instructions to run page-python in its README.
 
 After that download Page Android onto your Android device and follow in-app instructions to connect your device to the server created in the previous step. VOILA! You're Done!
 
