@@ -2,19 +2,19 @@
 
 # Page - Your Computer -> Home Server
 
-Page is an application that lets you transform your PC/Laptop (more devices coming soon), into a home server. Page Android (this repository) is the Android client for the same.
+Page is an application that lets you transform your PC/Laptop (more devices coming soon), into a home server. Page-Android (this repository) is the Android client for the same.
 
 ## Getting Started
 
 To get started simply download the [page-python](https://github.com/krishnakeshan/page-python) application onto your computer and run it. You can find instructions to run page-python in its README.
 
-After that download Page Android onto your Android device and follow in-app instructions to connect your device to the server created in the previous step. VOILA! You're Done!
+After that download Page-Android onto your Android device and follow in-app instructions to connect your device to the server created in the previous step. VOILA! You're Done!
 
 Support for more devices and platforms will be added on a best-effort basis. Read below to see how you can help!
 
 ## Contributing
 
-Page Android is built with Room, LiveData and based on the MVVM architecture. I've kept the code as clean as possible and well-commented so you shouldn't have trouble understanding it.
+Page-Android is built with Room, LiveData and based on the MVVM architecture. I've kept the code as clean as possible and well-commented so you shouldn't have trouble understanding it.
 
 The server implementation is currently built with Python but feel free to port it to other languages for whatever reasons you find valid.
 
