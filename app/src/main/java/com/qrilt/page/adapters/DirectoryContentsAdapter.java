@@ -4,6 +4,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -59,15 +60,24 @@ public class DirectoryContentsAdapter extends RecyclerView.Adapter<DirectoryCont
         RemoteFile file = contents.get(position);
         holder.setRemoteFile(file);
         holder.nameTextView.setText(file.getName());
+
+        if (file.isDir()) {
+            holder.iconImageView.setImageResource(R.drawable.ic_folder_open);
+            holder.downloadImageView.setVisibility(View.GONE);
+        } else {
+            holder.iconImageView.setImageResource(R.drawable.ic_document_outline);
+            holder.downloadImageView.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
     public int getItemCount() {
-        return contents.size();
+        return contents != null ? contents.size() : 0;
     }
 
     public void setContents(List<RemoteFile> contents) {
         this.contents = contents;
+        notifyDataSetChanged();
     }
 
     public void addListInteractionListener(ListInteractionListener listener) {
@@ -79,13 +89,16 @@ public class DirectoryContentsAdapter extends RecyclerView.Adapter<DirectoryCont
     public static class ContentItemViewHolder extends RecyclerView.ViewHolder {
         // properties
         private RemoteFile remoteFile;
+        private ImageView iconImageView, downloadImageView;
         public TextView nameTextView;
 
         // constructors
         public ContentItemViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            nameTextView = itemView.findViewById(R.id.view_holder_directory_content_item_name_text_view);
+            iconImageView = itemView.findViewById(R.id.view_holder_directory_content_item_icon_imageview);
+            nameTextView = itemView.findViewById(R.id.view_holder_directory_content_item_name_textview);
+            downloadImageView = itemView.findViewById(R.id.view_holder_directory_content_item_download_imageview);
         }
 
         public void setRemoteFile(RemoteFile remoteFile) {

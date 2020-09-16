@@ -5,8 +5,10 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:statusBarColor">@color/colorPrimary</item>
-        <item name="titleTextColor">@color/colorSecondary</item>
+        <item name="fontFamily">@font/baloo_regular</item>
+        <item name="android:statusBarColor">#023e8a</item>
+        <item name="titleTextColor">#FFF</item>
+        <item name="colorControlNormal">#FFF</item>
     </style>
 
 </resources>

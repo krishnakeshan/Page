@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <!--IP Address-->
+    <LinearLayout
+        android:id="@+id/fragment_add_device_ip_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_compass_outline"
+            app:tint="#046bf1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/enter_device_ip"
+            android:textColor="#3c4b62"
+            android:textSize="16sp"
+            android:textStyle="normal" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/fragment_add_device_ip_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/semi_round_rectangle"
+            android:gravity="center"
+            android:hint="@string/sample_ip"
+            android:paddingVertical="10dp"
+            android:textColor="#3c4b62"
+            android:textColorHint="@color/colorSecondaryDark" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/fragment_add_device_ip_next_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/next"
+            android:textColor="#FFF"
+            app:backgroundTint="#046bf1" />
+
+    </LinearLayout>
+
+    <!--Port-->
+    <LinearLayout
+        android:id="@+id/fragment_add_device_port_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_trail_sign_outline"
+            app:tint="#046bf1" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/enter_device_port"
+            android:textColor="#3c4b62"
+            android:textSize="16sp"
+            android:textStyle="normal" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/fragment_add_device_port_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/semi_round_rectangle"
+            android:gravity="center"
+            android:hint="@string/sample_port"
+            android:inputType="number"
+            android:paddingVertical="10dp"
+            android:textColor="#3c4b62"
+            android:textColorHint="@color/colorSecondaryDark" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/fragment_add_device_port_back_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:text="@string/back"
+                android:textColor="#3c4b62" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/fragment_add_device_port_next_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:text="@string/next"
+                android:textColor="@color/colorSecondary"
+                android:textStyle="bold"
+                app:backgroundTint="#046bf1" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!--Name-->
+    <LinearLayout
+        android:id="@+id/fragment_add_device_name_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_pricetag_outline"
+            app:tint="#046bf1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/enter_a_nickname_for_this_device"
+            android:textColor="#3c4b62"
+            android:textSize="16sp"
+            android:textStyle="normal" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/fragment_add_device_name_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/semi_round_rectangle"
+            android:gravity="center"
+            android:hint="@string/sample_name"
+            android:paddingVertical="10dp"
+            android:textColor="#3c4b62"
+            android:textColorHint="@color/colorSecondaryDark" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/fragment_add_device_name_back_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:text="@string/back"
+                android:textColor="#3c4b62" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/fragment_add_device_name_next_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:text="@string/finish"
+                android:textColor="@color/colorSecondary"
+                android:textStyle="bold"
+                app:backgroundTint="#046bf1" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!--Check Connection-->
+    <LinearLayout
+        android:id="@+id/fragment_add_device_checking_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="24dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/one_moment_saying_hello"
+            android:textColor="@color/colorSecondary"
+            android:textSize="24sp" />
+
+        <ProgressBar
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:indeterminate="true" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/fragment_add_device_cancel_check_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@null"
+            android:text="@string/cancel"
+            android:textColor="@color/colorSecondary"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".HostSettingsFragment">
+
+    <!--Device Name-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/device_name"
+        android:textAllCaps="true"
+        android:textSize="12sp" />
+
+    <EditText
+        android:id="@+id/fragment_host_settings_name_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/semi_round_rectangle"
+        android:hint="@string/sample_name"
+        android:lines="1"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="10dp"
+        android:textColor="#3c4b62" />
+
+    <!--Device IP-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/device_ip"
+        android:textAllCaps="true"
+        android:textSize="12sp" />
+
+    <EditText
+        android:id="@+id/fragment_host_settings_ip_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/semi_round_rectangle"
+        android:hint="@string/sample_ip"
+        android:lines="1"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="10dp"
+        android:textColor="#3c4b62" />
+
+    <!--Device Port-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/port"
+        android:textAllCaps="true"
+        android:textSize="12sp" />
+
+    <EditText
+        android:id="@+id/fragment_host_settings_port_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/semi_round_rectangle"
+        android:hint="@string/sample_port"
+        android:inputType="number"
+        android:lines="1"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="10dp"
+        android:textColor="#3c4b62" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/fragment_host_settings_save_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/save"
+        android:textColor="#FFF"
+        app:backgroundTint="#046bf1" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!--Delete Button-->
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Delete Device"
+        android:textColor="#046bf1"
+        app:backgroundTint="#ecf0f6" />
+
+</LinearLayout>

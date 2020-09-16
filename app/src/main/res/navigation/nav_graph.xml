@@ -1,5 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/viewHostFragment">
 
+    <fragment
+        android:id="@+id/addDeviceFragment"
+        android:name="com.qrilt.page.AddDeviceFragment"
+        android:label="@string/add_device"
+        tools:layout="@layout/fragment_add_device" >
+        <action
+            android:id="@+id/action_addDeviceFragment_to_viewHostFragment"
+            app:destination="@id/viewHostFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewHostFragment"
+        android:name="com.qrilt.page.ViewHostFragment"
+        android:label="Page"
+        tools:layout="@layout/fragment_view_host">
+        <action
+            android:id="@+id/action_viewHostFragment_to_addDeviceFragment"
+            app:destination="@id/addDeviceFragment" />
+        <action
+            android:id="@+id/action_viewHostFragment_to_hostSettingsFragment"
+            app:destination="@id/hostSettingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/hostSettingsFragment"
+        android:name="com.qrilt.page.HostSettingsFragment"
+        android:label="@string/settings"
+        tools:layout="@layout/fragment_host_settings" />
 </navigation>

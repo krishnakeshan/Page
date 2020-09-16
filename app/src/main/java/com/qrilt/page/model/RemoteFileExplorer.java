@@ -1,9 +1,6 @@
 package com.qrilt.page.model;
 
-import android.util.Log;
-
-import com.qrilt.page.APIClient;
-import com.qrilt.page.model.RemoteFile;
+import com.qrilt.page.utils.APIClient;
 
 import org.json.JSONException;
 import org.json.JSONObject;

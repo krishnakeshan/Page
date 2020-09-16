@@ -1,15 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:gravity="center_vertical"
     android:orientation="horizontal"
-    android:padding="24dp">
+    android:paddingHorizontal="24dp"
+    android:paddingVertical="16dp">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/view_holder_directory_content_item_icon_imageview"
+        android:layout_width="24dp"
+        android:layout_height="24dp" />
 
     <TextView
-        android:id="@+id/view_holder_directory_content_item_name_text_view"
-        android:layout_width="match_parent"
+        android:id="@+id/view_holder_directory_content_item_name_textview"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_weight="1"
+        android:textColor="#3c4b62"
+        android:textSize="16sp"
         tools:text="Directory" />
+
+    <ImageView
+        android:id="@+id/view_holder_directory_content_item_download_imageview"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_cloud_download_outline"
+        android:visibility="visible"
+        app:tint="#2f80ed" />
 
 </LinearLayout>

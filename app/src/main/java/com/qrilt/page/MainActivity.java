@@ -2,6 +2,16 @@ package com.qrilt.page;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,18 +19,32 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
+import com.google.android.material.navigation.NavigationView;
+import com.qrilt.page.adapters.DevicesAdapter;
 import com.qrilt.page.model.RemoteHost;
+import com.qrilt.page.utils.Animator;
+import com.qrilt.page.viewmodels.MainActivityViewModel;
 
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.Socket;
+import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
-    // Properties
+public class MainActivity extends AppCompatActivity implements DevicesAdapter.DeviceSelectionListener {
+    // Views
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
     Toolbar toolbar;
-    EditText ipPart1EditText, ipPart2EditText, ipPart3EditText, ipPart4EditText, portEditText;
-    Button connectButton;
+    ImageButton toolbarActionButton;
+    NavHostFragment navHostFragment;
+    RecyclerView devicesRecyclerView;
+
+    // Properties
+    NavController navController;
+    AppBarConfiguration appBarConfiguration;
+    MainActivityViewModel viewModel;
 
     // Methods
     @Override
@@ -28,32 +52,39 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // initialize stuff
+        Animator.init(this);
+
+        // get viewModel
+        viewModel = new ViewModelProvider(this).get(MainActivityViewModel.class);
+
         // bind views
+        drawerLayout = findViewById(R.id.activity_main_drawer_layout);
+        navigationView = findViewById(R.id.activity_main_navigation_view);
         toolbar = findViewById(R.id.activity_main_toolbar);
-        ipPart1EditText = findViewById(R.id.activity_main_ip_part_1_edit_text);
-        ipPart2EditText = findViewById(R.id.activity_main_ip_part_2_edit_text);
-        ipPart3EditText = findViewById(R.id.activity_main_ip_part_3_edit_text);
-        ipPart4EditText = findViewById(R.id.activity_main_ip_part_4_edit_text);
-        portEditText = findViewById(R.id.activity_main_port_edit_text);
-        connectButton = findViewById(R.id.activity_main_connect_button);
+        toolbarActionButton = findViewById(R.id.activity_main_toolbar_action_button);
+        devicesRecyclerView = findViewById(R.id.activity_main_devices_recyclerview);
 
-        // setup toolbar
+        // setup drawer layout
+        DevicesAdapter devicesAdapter = new DevicesAdapter(viewModel.getRemoteHosts().getValue(), this);
+        devicesRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        devicesRecyclerView.setAdapter(devicesAdapter);
+        viewModel.getRemoteHosts().observe(this, devicesAdapter::setRemoteHosts);
+
+        // setup navigation
         setSupportActionBar(toolbar);
+        navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
+        navController = navHostFragment.getNavController();
+        appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).setOpenableLayout(drawerLayout).build();
+        NavigationUI.setupWithNavController(toolbar, navController, appBarConfiguration);
+    }
 
-        // setup connect button
-        connectButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // get client
-                String host = ipPart1EditText.getText().toString() + "." + ipPart2EditText.getText().toString() + "." + ipPart3EditText.getText().toString() + "." + ipPart4EditText.getText().toString();
-                int port = Integer.parseInt(portEditText.getText().toString());
+    // DeviceSelectionListener methods
+    public void onDeviceSelected(RemoteHost remoteHost) {
+        // set selected device
+        viewModel.setSelectedRemoteHost(remoteHost);
 
-                // go to remote home activity
-                Intent intent = new Intent(MainActivity.this, RemoteHomeActivity.class);
-                intent.putExtra("REMOTE_HOST", host);
-                intent.putExtra("REMOTE_PORT", port);
-                startActivity(intent);
-            }
-        });
+        // close drawer
+        drawerLayout.closeDrawers();
     }
 }
