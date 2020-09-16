@@ -1,3 +1,5 @@
+<img src="https://github.com/krishnakeshan/Page/blob/master/Screenshot_20200916-225913.png" height="500"/> <img src="https://github.com/krishnakeshan/Page/blob/master/Screenshot_20200916-225923.png" height="500"/> <img src="https://github.com/krishnakeshan/Page/blob/master/Screenshot_20200916-225944.png" height="500"/>
+
 # Page - Your Computer -> Home Server
 
 Page is an application that lets you transform your PC/Laptop (more devices coming soon), into a home server. Page Android (this repository) is the Android client for the same.
